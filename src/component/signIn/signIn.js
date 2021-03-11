@@ -54,7 +54,7 @@ class SignIn extends Component {
        this.props.setStateLogin(true, () => {
          this.props.history.push('/')
        });
-       this.props.saveAuthentication (data.accessToken, data.tokenType);
+      //  this.props.saveAuthentication (data.accessToken, data.tokenType);
 
      }
     
