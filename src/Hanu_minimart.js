@@ -32,14 +32,14 @@ class Hanu_minimart extends React.Component {
     };
 
     this.setStateLogin = this.setStateLogin.bind(this);
-    this.saveAuthentication = this.saveAuthentication.bind(this);
+    // this.saveAuthentication = this.saveAuthentication.bind(this);
   }
   //save data token and Bearer
-  saveAuthentication(accessToken, tokenType){
-    this.setState({
-      Authentication: tokenType + accessToken 
-    })
-  }
+  // saveAuthentication(accessToken, tokenType){
+  //   this.setState({
+  //     Authentication: tokenType + accessToken 
+  //   })
+  // }
   //authentication
   setStateLogin(data, callback_function) {
     this.setState(
