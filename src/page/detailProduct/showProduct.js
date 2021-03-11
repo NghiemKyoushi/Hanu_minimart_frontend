@@ -1,15 +1,23 @@
 import React from "react";
+
+import axios from "axios";
+
 import "./detailProduct.css";
 import Colors from "./color";
-import DetailsThumb from "./DetailsThumb";
-import { ExceptionMap } from "antd/lib/result";
-import { render } from "react-dom/cjs/react-dom.development";
+import { withRouter } from "react-router";
 class DetailProduct extends React.Component {
-  state = {
-    colors: ["red", "black", "crimson", "teal"],
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: this.props.match.params.id,
+      isSaved: false,
+      product_id: {},
+      product: [],
+      colors: ["red", "black", "crimson", "teal"],
+      index: 0,
+    };
+  }
 
-    index: 0,
-  };
 
   myRef = React.createRef();
 
@@ -22,83 +30,102 @@ class DetailProduct extends React.Component {
     images[index].className = "active";
   };
 
-  // componentDidMount() {
-  //   const { index } = this.state;
-  //   this.myRef.current.children[index].className = "active";
-  // }
+  async componentDidMount() {
+    // console.log("okeyyyyyy");
+    const urlProduct = "http://localhost:8085/api/product/all";
+    const getDataProduct = await axios.get(urlProduct);
+    const product = getDataProduct.data;
+    this.setState({
+      product: product,
+    });
+    const product_Id = this.state.product.find(
+      (item) => item.id === Number(this.state.id)
+    );
+    this.setState({
+      product_id: product_Id,
+      isSaved: true
+    })
+    console.log(this.state.product_id);
+  }
 
   render() {
     const { colors } = this.state;
-    const {
-      id,
-      name,
-      
-      description,
-      price,
-      quantity,
-      
-    } = this.props.product;
-
+    const { product_id, isSaved } = this.state;
     return (
-      <div className="details" key={id}>
-        <div className="big-img">
-          <img src="https://vincom.com.vn/sites/default/files/2016-10/VinMart_1.jpg" alt="" />
-        </div>
+      <div className="details">
+        {(isSaved) ? (
+                <div className="details" >
+                  <div className="big-img">
+                    <img
+                      src="https://tutimviec.com/wp-content/uploads/2018/12/vinmart-amp.jpg"
+                      alt=""
+                    />
+                  </div>
 
-        <div className="box">
-          <div className="row">
-            <h2>{name}</h2>
-            <span>${price}</span>
-          </div>
-          <Colors colors={colors} />
+                  <div className="box">
+                    <div className="row">
+                      <h2>{product_id.name}</h2>
+                      <span>${product_id.price}</span>
+                    </div>
+                    {/* <Colors colors={colors} /> */}
 
-          {/* <p>{company}</p> */}
-          <p>{quantity}</p>
+                    <p>quantity: {product_id.quantity}</p>
+                    <p>expireDate: {product_id.expireDate}</p>
 
-          {/* <DetailsThumb
+                    {/* <DetailsThumb
                     images={item.src}
                     tab={this.handleTab}
                     myRef={this.myRef}
                   /> */}
-          <button
-            className="cart"
-            // disabled={inCart}
-            // onClick={() => addToCart(id)}
-          >
-            {/* {inCart === true ? <span>InCart</span> :  */}
-            <span>Add To Cart</span>
-          </button>
-        </div>
+                    <button
+                      className="cart"
+                      // disabled={inCart}
+                      // onClick={() => addToCart(id)}
+                    >
+                      {/* {inCart === true ? <span>InCart</span> :  */}
+                      <span>Add To Cart</span>
+                    </button>
+                  </div>
+                </div>
+
+        ) : (
+          ""
+        )}
       </div>
     );
   }
 }
 
-export default DetailProduct;
+export default withRouter(DetailProduct);
 
-// export default class  Details extends React.Component{
-//   render(){
-//     return (
-//       <ProductConsumer>
-//         {
-//           (value) =>{
-//             const {id, title, img, info, price, company, inCart} = value.detailProduct;
-//             return(
-//               <div className="container">
-//               <div className ="col-10 mx-auto tex-center">
-//                  <h1>Your product details</h1>
-//                </div>
-//                <div className='row'>
-//                  <div className ='col-4 mx-auto col-md-4'>
-//                  <img src ={img} className ="img-fluid"></img>
-//                   </div>
-//                </div>
+// <div className="big-img">
+//           <img
+//             src="https://vincom.com.vn/sites/default/files/2016-10/VinMart_1.jpg"
+//             alt=""
+//           />
+//         </div>
 
-//               </div>
-//             )
-//           }
-//         }
-//       </ProductConsumer>
-//     )
-//   }
-// }
+//         <div className="box">
+//           <div className="row">
+//             <h2>{name}</h2>
+//             <span>${price}</span>
+//           </div>
+//           <Colors colors={colors} />
+
+//           {/* <p>{company}</p> */}
+//           <p>{quantity}</p>
+
+//           {/* <DetailsThumb
+//                     images={item.src}
+//                     tab={this.handleTab}
+//                     myRef={this.myRef}
+//                   /> */}
+//           <button
+//             className="cart"
+//             // disabled={inCart}
+//             // onClick={() => addToCart(id)}
+//           >
+//             {/* {inCart === true ? <span>InCart</span> :  */}
+//             <span>Add To Cart</span>
+//           </button>
+//         </div>

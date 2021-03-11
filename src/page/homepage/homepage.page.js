@@ -22,7 +22,6 @@ class Home extends React.Component {
         "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
         "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
         "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-        "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
       ],
     };
   }
@@ -40,8 +39,7 @@ class Home extends React.Component {
       <div className="container1">
 
         <Slide />
-        <hr />
-        <div className="Flash_sale1">
+        {/* <div className="Flash_sale1">
           <h3>
             <i>Flash Sale</i>
           </h3>
@@ -53,20 +51,17 @@ class Home extends React.Component {
                   style={{ width: 200 }}
                   cover={<img alt="example" src={url} />}
                 >
-                  <Meta
-                    title="Europe Street beat"
-                    description="www.instagram.com"
-                  />
                 </Card>
               );
             })}
           </div>
 
-          <hr />
+
+        </div> */}
+        <h2>Product list</h2>
+        <hr />
           <Product/>
           <hr />
-
-        </div>
         <div className="content">
           <div className="title1">
             <Title level={4}>

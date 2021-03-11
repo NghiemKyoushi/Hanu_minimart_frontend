@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+
+import { Link, withRouter } from "react-router-dom";
 import { Card, Row, Col, Button } from "react-bootstrap";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 // import { Card } from 'antd';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./product.css";
-export default class Product extends React.Component {
+class Product extends React.Component {
   
   render() {
     const { id, name, price, expiredDate } = this.props.product;
@@ -18,7 +20,7 @@ export default class Product extends React.Component {
             }
             style={{ width: "18rem", heigh: "18rem", backgroundColor: "" }}
           >
-            <Link to="/product/detailProduct">
+            <Link to ={`product/${id}`}>
               <Card.Img variant="top" src={"https://vincom.com.vn/sites/default/files/2016-10/VinMart_1.jpg"} />
             </Link>
             <Card.Body>
@@ -62,3 +64,4 @@ export default class Product extends React.Component {
     );
   }
 }
+export default withRouter(Product);

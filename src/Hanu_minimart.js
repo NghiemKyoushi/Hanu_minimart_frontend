@@ -32,6 +32,7 @@ class Hanu_minimart extends React.Component {
     };
 
     this.setStateLogin = this.setStateLogin.bind(this);
+    this.saveAuthentication = this.saveAuthentication.bind(this);
   }
   //save data token and Bearer
   saveAuthentication(accessToken, tokenType){
@@ -77,7 +78,7 @@ class Hanu_minimart extends React.Component {
             <TestProduct/>
               </AppRoute>
             </Route>
-            <Route isLogin={isLogin} exact path="/product/detailProduct">
+            <Route isLogin={isLogin} exact path="/product/:id">
             <AppRoute isLogin={isLogin}>
             <DetailProduct/>
               </AppRoute>
