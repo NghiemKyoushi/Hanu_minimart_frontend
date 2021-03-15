@@ -15,12 +15,17 @@ class DetailProduct extends React.Component {
       product: [],
       colors: ["red", "black", "crimson", "teal"],
       index: 0,
+      cart: {
+        user: {},
+        cartItem: [],
+        createAt: null,
+        updateAt: null
+      }
     };
   }
 
 
   myRef = React.createRef();
-
   handleTab = (index) => {
     this.setState({ index: index });
     const images = this.myRef.current.children;
@@ -32,7 +37,7 @@ class DetailProduct extends React.Component {
 
   async componentDidMount() {
     // console.log("okeyyyyyy");
-    const urlProduct = "http://localhost:8085/api/product/all";
+    const urlProduct = "http://localhost:8085/api/product/getAll";
     const getDataProduct = await axios.get(urlProduct);
     const product = getDataProduct.data;
     this.setState({

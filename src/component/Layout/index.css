@@ -13,3 +13,6 @@ a {
 .layout{
     position: fixed;
 }
+.sider{
+    background-color: red;
+}

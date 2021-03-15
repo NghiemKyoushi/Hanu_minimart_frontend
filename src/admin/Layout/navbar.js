@@ -30,7 +30,6 @@ getCookie(name) {
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
   componentDidMount(){
-    console.log("udhufhduhf")
     this.getUserName()
       console.log(this.props.isLogin)
   }

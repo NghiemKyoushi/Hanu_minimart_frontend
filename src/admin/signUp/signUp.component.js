@@ -7,7 +7,6 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: "",
       name: "",
       username: "",
       phoneNumber:"",
@@ -77,14 +76,6 @@ class SignUp extends React.Component {
       body: JSON.stringify(body),
     });
     const returnMessage = await response.json();
-    console.log(returnMessage);
-        if (returnMessage.success === "false") {
-            this.setState({
-                status: "Wrong Input !"
-            })
-        } else if (returnMessage.success === "true") {
-            this.props.history.push('/signin');
-        }
     document.querySelector('#error').textContent =`${returnMessage.message}`
   }
 
@@ -177,38 +168,3 @@ class SignUp extends React.Component {
 }
 
 export default  withRouter(SignUp);
-
-// export default class SignUp extends Component {
-//   render() {
-//     return (
-//       <div>
-//         <Divider orientation="center"> SignUp Form</Divider>
-
-//         <Row justify="center" style={{ padding: "5px"}}>
-//           <Form>
-//           <Form.Item label="Name">
-//               <Input />
-//             </Form.Item>
-//             <Form.Item label="UserName">
-//               <Input />
-//             </Form.Item>
-//             <Form.Item label="Password">
-//               <Input.Password />
-//             </Form.Item>
-//             <Form.Item label="Address">
-//             <input type = "text" />
-//             </Form.Item>
-//             <Form.Item label="PhoneNumber">
-//             <input type = "number"/>
-//             </Form.Item>
-//             <Form.Item>
-//               <Button type="primary">SignUp</Button>
-//             </Form.Item>
-
-//             <Link to ='/signin' style={{textDecoration: 'none', color: 'blue'}}>I already have an account</Link>
-//           </Form>
-//         </Row>
-//       </div>
-//     );
-//   }
-// }

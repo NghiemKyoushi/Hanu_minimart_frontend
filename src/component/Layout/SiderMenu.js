@@ -12,14 +12,14 @@ import { Layout, Menu, Input } from "antd";
 import SubMenu from "antd/lib/menu/SubMenu";
 import { Link } from "react-router-dom";
 import { ProductConsumer, ProductProvider } from "../../contextAPI";
-
+import './index.css'
 // import Product from '../product/productList';
 
 const { Sider } = Layout;
 
 const SiderMenu = () => {
   return (
-    <Sider>
+    <Sider className= "sider">
       <Menu defaultSelectedKeys={["Dashboard"]} mode="inline">
         <Menu.Item key="dashboard">DASHBOARD</Menu.Item>
 
@@ -47,7 +47,7 @@ const SiderMenu = () => {
                 </ProductConsumer> */}
         </Menu.Item>
         <Menu.Item key="Profile" icon={<ProfileOutlined />} title="Profile">
-          Profile
+         <Link to = "/profile"> Profile</Link>
         </Menu.Item>
       </Menu>
     </Sider>

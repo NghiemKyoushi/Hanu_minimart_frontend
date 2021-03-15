@@ -24,11 +24,12 @@ const SiderMenu = () => {
               <Menu defaultSelectedKeys={["Dashboard"]} mode="inline">
                 <Menu.Item key="dashboard">Admin</Menu.Item>
                <Menu.Item>
-               <UserOutlined />Manage User
+               <UserOutlined />
+               <Link to ="/admin/manageuser">Manage User </Link>
                </Menu.Item>
                <Menu.Item>
                <FolderOutlined />
-               <Link to ="/admin/product">Manage Product </Link> 
+               <Link to ="/admin/manageproduct">Manage Product </Link> 
                </Menu.Item>
                <Menu.Item>
                <ContainerOutlined />  Manage Order

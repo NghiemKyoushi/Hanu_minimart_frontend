@@ -58,8 +58,7 @@ class Home extends React.Component {
 
 
         </div> */}
-        <h2>Product list</h2>
-        <hr />
+        <h3>Bread / Candy</h3>
           <Product/>
           <hr />
         <div className="content">

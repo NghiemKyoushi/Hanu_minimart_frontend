@@ -7,7 +7,7 @@ class ProtectedRoute extends Component {
         const { isLogin, path, children, exact } = this.props;
         console.log("protected ", this.props)
         return <Route exact={exact} to={path}>
-            {isLogin ? children : <Redirect push to="/login" />}
+            {isLogin ? children : <Redirect push to="/signin" />}
         </Route>
     }
 }

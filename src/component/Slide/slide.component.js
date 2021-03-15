@@ -18,17 +18,17 @@ const Slideshow = () => {
       <Slide {...proprietes}>
         <div className="each-slide">
           <div>
-            <img src= 'https://vnreview.vn/image/21/74/38/2174384.jpg?t=1614743680399' alt="img1" />
+            <img src= 'https://lh3.googleusercontent.com/ZbbTi42WeEM716yNHBpuDFlkEslfh2Q0FwUEa3hPvh7XtAwI7_iVxyeqR_OT9NORl9lkkMdLlCgpy-Bi46RYtDvygs2PtVHn=w1180' alt="img1" />
           </div>
         </div>
         <div className="each-slide">
           <div>
-            <img src='https://image.bnews.vn/MediaUpload/Org/2021/01/15/314ccfb4-153b-4574-b5e1-239ad5a4d276.jpeg' alt="img2" />
+            <img src='https://lh3.googleusercontent.com/J9pdTAh_HHDJSDDUGKJJDCtZ7xq6P3Ppdr-gU5zxp7xhtxs-OW06qpirYhDTDPaw7-jAWOmHzhAUat9h9r5M019gFQwqiSQ=w1180' alt="img2" />
           </div>
         </div>
         <div className="each-slide">
           <div>
-            <img src='https://imagevietnam.vnanet.vn/Upload/2016/7/19/1907201609521574-30_resize.jpg' alt="img3" />
+            <img src='https://lh3.googleusercontent.com/Tc28yWWbpG8uVdz5xqyfEGo4dZf_VEdv6B_V6aU1lyM2KIPXhk7YKlwlJ_SNTk9xRF3psb0hYWzH1o6PPb1FMsWDJKVy8XU=w1180' alt="img3" />
           </div>
         </div>
       </Slide>

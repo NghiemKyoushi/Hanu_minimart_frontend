@@ -19,9 +19,8 @@ class AppRoute extends React.Component{
   render(){
     const {children, isLogin } = this.props
     return (
-      <Layout >
+      <Layout  style={{backgroundColor: "red"}}>
   <Header style={{ padding: 10 }}>
-    <Avatar style={{ float: "right" }} src="./avatar.png" />
     <Navbar isLogin ={isLogin}/>
     <Title style={{ color: "white" }} level={3}>
       <Link to="/"> HANU_mimimart</Link>

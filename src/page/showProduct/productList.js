@@ -12,13 +12,19 @@ import { withRouter } from "react-router";
   constructor(props) {
     super(props);
     this.state = {
+      search: "",
       product: [],
       detailProduct: null,
       steps: 6,
+      img: [
+
+      ]
     };
     // this.getProduct = this.getProduct.bind(this);
     // this.getDetailProduct = this.getDetailProduct.bind(this);
     this.handleLoadMore = this.handleLoadMore.bind(this);
+    this.fetch_Search_Product = this.fetch_Search_Product.bind(this);
+    this.handleChange= this.handleChange.bind(this);
   }
 
   getItem = (id) => {
@@ -36,7 +42,7 @@ import { withRouter } from "react-router";
 
   async componentDidMount() {
     console.log("okeyyyyyy");
-    const urlProduct = "http://localhost:8085/api/product/all";
+    const urlProduct = "http://localhost:8085/api/product/getAll";
     const getDataProduct = await axios.get(urlProduct);
     const product = getDataProduct.data;
     this.setState({
@@ -45,7 +51,20 @@ import { withRouter } from "react-router";
     });
     
   }
+  async fetch_Search_Product(e){
+    e.preventDefault();
+    console.log(typeof this.state.search)
 
+    const url =  `http://localhost:8085/api/product/getAll?name=${this.state.search}`;
+    const data = await axios.get(url);
+    const product = data.data;
+    this.setState({
+      product: product
+    })
+  }
+  handleChange(event) {
+    this.setState({ search: event.target.value })
+  }
   handleLoadMore() {
     const { product, steps } = this.state;
     if (steps + 6 < product.length) {
@@ -64,6 +83,23 @@ import { withRouter } from "react-router";
     return (
       
         <div>
+        <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form class="card card-sm" >
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search By Name" onChange={this.handleChange}/>
+                                    </div>
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-success" type="submit" onClick = {this.fetch_Search_Product}>Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
           {product && product.length > 0 ? (
             <div className ="content_Cart">
             <Card>
@@ -71,7 +107,7 @@ import { withRouter } from "react-router";
                 if (index < steps) {
                   return (
                     <div>
-                      <Card.Grid style={{ width: 340 }}>
+                      <Card.Grid style={{ width: 350 }}>
                         <Product
                           key={product.id}
                           product={product}

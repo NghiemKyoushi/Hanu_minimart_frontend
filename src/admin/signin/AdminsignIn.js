@@ -1,10 +1,9 @@
 import axios from "axios";
-import { error } from "jquery";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import "./login.css";
-class SignIn extends Component {
+class AdminSignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,21 +41,21 @@ class SignIn extends Component {
     };
      const response = await axios.post(url, body)
      const data = await response.data;
-     console.log(data);
-     if(data === "false"){
-       this.setState({
-         status: "password or email is not exactly"
-       })
-     }else {
-       this.createCookie("username", `${data.user.username}`,14.4);
-       this.createCookie("uid", `${data.user.id}`,14.4)
-       this.props.setStateLogin(true, () => {
-         this.props.history.push('/')
-       });
-       const Authentication = data.tokenType + " " + data.accessToken ;
-       console.log(Authentication);
-        this.props.saveAuthentication(Authentication, data.user);
+     console.log(data.user);
+     if(data.user.roles[0].name === "ROLE_ADMIN"){
 
+      this.createCookie("username", `${data.user.username}`,14.4);
+      this.createCookie("uid", `${data.user.id}`,14.4)
+      this.props.setStateAdminLogin(true, () => {
+        this.props.history.push('/admin')
+      });
+     const Authentication = data.tokenType + " " + data.accessToken ;
+      this.props.saveAuthentication(Authentication, data.user);
+      
+     }else {
+      this.setState({
+        status: "password or email is not exactly or you is not admin"
+      })
      }
     
   }
@@ -117,7 +116,6 @@ class SignIn extends Component {
             <i className="fas fa-lock"></i>
           </div>
           <Link className="linksignup" to="/signup">
-            {" "}
             You has not an account, go to register page{" "}
           </Link>
           <h6>{this.state.status}</h6>
@@ -131,4 +129,4 @@ class SignIn extends Component {
   }
 }
 
-export default withRouter(SignIn);
+export default withRouter(AdminSignIn);
