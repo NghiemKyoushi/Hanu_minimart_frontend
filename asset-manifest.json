@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Hanu_minimart_frontend/static/css/main.6463e479.chunk.css",
+    "main.js": "/Hanu_minimart_frontend/static/js/main.c7f82050.chunk.js",
+    "main.js.map": "/Hanu_minimart_frontend/static/js/main.c7f82050.chunk.js.map",
+    "runtime-main.js": "/Hanu_minimart_frontend/static/js/runtime-main.873fad18.js",
+    "runtime-main.js.map": "/Hanu_minimart_frontend/static/js/runtime-main.873fad18.js.map",
+    "static/css/2.94f61624.chunk.css": "/Hanu_minimart_frontend/static/css/2.94f61624.chunk.css",
+    "static/js/2.f33b962b.chunk.js": "/Hanu_minimart_frontend/static/js/2.f33b962b.chunk.js",
+    "static/js/2.f33b962b.chunk.js.map": "/Hanu_minimart_frontend/static/js/2.f33b962b.chunk.js.map",
+    "index.html": "/Hanu_minimart_frontend/index.html",
+    "static/css/2.94f61624.chunk.css.map": "/Hanu_minimart_frontend/static/css/2.94f61624.chunk.css.map",
+    "static/css/main.6463e479.chunk.css.map": "/Hanu_minimart_frontend/static/css/main.6463e479.chunk.css.map",
+    "static/js/2.f33b962b.chunk.js.LICENSE.txt": "/Hanu_minimart_frontend/static/js/2.f33b962b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.873fad18.js",
+    "static/css/2.94f61624.chunk.css",
+    "static/js/2.f33b962b.chunk.js",
+    "static/css/main.6463e479.chunk.css",
+    "static/js/main.c7f82050.chunk.js"
+  ]
+}
