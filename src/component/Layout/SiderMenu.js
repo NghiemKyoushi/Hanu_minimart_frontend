@@ -25,14 +25,8 @@ const SiderMenu = () => {
           <AppstoreOutlined /> Order
         </Menu.Item>
 
-        <Menu.Item
-          key="search"
-          icon={<SearchOutlined />}
-          style={{ width: 180 }}
-        >
-          <Input key="search" />
-        </Menu.Item>
-        <Menu.Item key="cart" icon={<ShoppingCartOutlined />} title="Cart">
+        
+        <Menu.Item key="cart" icon={<ShoppingCartOutlined />} title="Cart">	Cart
           {/* <ProductConsumer>
                   {
                     (value) => { */}
@@ -45,7 +39,7 @@ const SiderMenu = () => {
                 </ProductConsumer> */}
         </Menu.Item>
         <Menu.Item key="Profile" icon={<ProfileOutlined />} title="Profile">
-         <Link to = "/profile"> Profile</Link>
+         <Link to = "/profile">Profile</Link>
         </Menu.Item>
         <Menu.Item key="history" icon={<HistoryOutlined />} title="history">
          <Link to = "/history">History</Link>

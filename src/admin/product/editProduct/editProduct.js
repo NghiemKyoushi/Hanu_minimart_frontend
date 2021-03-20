@@ -253,6 +253,7 @@ class EditProduct extends React.Component {
                           type="text"
                           class="form-control"
                           id="expireDate"
+                          type="date"
                           defaultValue={product.expireDate}
                           onChange={this.handleChangeInput}
 
