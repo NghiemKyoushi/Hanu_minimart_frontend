@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import "./orderhistory.css";
-import { withRouter } from "react-router";
+import { withRouter, Link } from "react-router-dom";
 import { ImportOutlined } from "@ant-design/icons";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -74,17 +74,25 @@ class ViewDetailHistory extends React.Component {
     this.setState({
       open: false,
     });
-    this.props.history.push('/orderhistory')
+    this.props.history.push('/employee/manageorder');
   }
 
   async checkStorageCancel(){
     console.log("Cancccccccccccccccccccc")
-    const urlStatus = `http://localhost:8085/api/order/updateStatus/${this.props.match.params.id}?status=CANCEL`;
-    const updateStatus = await axios.put(urlStatus);
+
+    try{
+      const urlStatus = `http://localhost:8085/api/order/updateStatus/${this.props.match.params.id}?status=CANCEL`;
+      const updateStatus = await axios.put(urlStatus);
+    }catch(e){
+      alert("not done");
+
+    }
     
     this.setState({
       open: false,
     });
+
+    this.props.history.push('/employee/manageorder');
 
   }
   handleData(productName) {
@@ -168,7 +176,7 @@ class ViewDetailHistory extends React.Component {
       <div>
         <div className="container_cart">
           <button className="btn btn-primary" onClick={this.handleOrderNow}>
-            <ImportOutlined />
+            <Link to ="/employee/manageorder"><ImportOutlined /></Link>
           </button>
 
           <div className="card shopping-cart">
