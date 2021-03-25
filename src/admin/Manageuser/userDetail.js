@@ -14,6 +14,7 @@ class UserDetail extends React.Component {
       username: "",
       phoneNumber: "",
       address: "",
+      role: " "
     };
     this.setUserName = this.setUserName.bind(this);
     this.setName = this.setName.bind(this);
@@ -63,13 +64,14 @@ class UserDetail extends React.Component {
   async fetchDataUpdate(event) {
     event.preventDefault();
     console.log("update.......................");
-    const { name, username, phoneNumber, address } = this.state;
+    const { name, username, phoneNumber, address, role } = this.state;
 
     const body = {
       name: name,
       username: username,
       phoneNumber: phoneNumber,
       address: address,
+      role: role
     };
     const urlUpdate = `http://localhost:8085/api/account/update?id=${this.state.user.id}`;
     const postDataUser = await axios.post(urlUpdate, body);
@@ -100,6 +102,7 @@ class UserDetail extends React.Component {
       phoneNumber: data_user.phoneNumber,
       username: data_user.username,
       address: data_user.address,
+      role: data_user.roles[0].name, 
       user: data_user,
     });
   }
