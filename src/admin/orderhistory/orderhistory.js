@@ -64,7 +64,7 @@ class OrderHistory extends React.Component{
                         <TableCell align="right">Name</TableCell>
 
                         <TableCell align="right">Address</TableCell>
-                        <TableCell align="right">Deli Date</TableCell>
+                        <TableCell align="right">Delivery Date</TableCell>
                         {/* <TableCell align="right">Note</TableCell> */}
                         <TableCell align="right">Status</TableCell>
                         <TableCell align="right">Action</TableCell>

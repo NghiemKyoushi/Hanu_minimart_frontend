@@ -63,7 +63,7 @@ class OrderHistory extends React.Component{
                       <TableRow>
                         <TableCell align="right">Id</TableCell>
                         <TableCell align="right">Address</TableCell>
-                        <TableCell align="right">Deli Date</TableCell>
+                        <TableCell align="right">Delivery Date</TableCell>
                         <TableCell align="right">Status</TableCell>
                         <TableCell align="right">Total</TableCell>
                         <TableCell align="right">Action</TableCell>
