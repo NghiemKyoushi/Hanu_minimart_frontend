@@ -175,9 +175,9 @@ class ViewDetailHistory extends React.Component {
     return (
       <div>
         <div className="container_cart">
-          <button className="btn btn-primary" onClick={this.handleOrderNow}>
-            <Link to ="/employee/manageorder"><ImportOutlined /></Link>
-          </button>
+          
+            <Link to ="/employee/manageorder"><button className="btn btn-primary" ><ImportOutlined /></button></Link>
+          
 
           <div className="card shopping-cart">
             {orderDetail.map((product, index) => (
@@ -321,7 +321,7 @@ class ViewDetailHistory extends React.Component {
                 </Dialog>
               </React.Fragment>
 
-              <button className="btn btn-danger">Cancel Order</button>
+              {/* <button className="btn btn-danger">Cancel Order</button> */}
               <div className="" style={{ margin: 17 }}>
                 Total price: <b>{totalPrice}</b>
               </div>

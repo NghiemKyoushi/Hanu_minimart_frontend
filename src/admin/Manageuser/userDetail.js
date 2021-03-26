@@ -2,6 +2,11 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 import "./userDetail.css";
 class UserDetail extends React.Component {
   constructor(props) {
@@ -14,11 +19,11 @@ class UserDetail extends React.Component {
       username: "",
       phoneNumber: "",
       address: "",
-      role: " "
+      role: " ",
     };
     this.setUserName = this.setUserName.bind(this);
     this.setName = this.setName.bind(this);
-
+    this.setRoles = this.setRoles.bind(this)
     this.setPhoneNumber = this.setPhoneNumber.bind(this);
     this.setAddress = this.setAddress.bind(this);
     // this.showData = this.showData.bind(this);
@@ -33,6 +38,12 @@ class UserDetail extends React.Component {
   setName(event) {
     this.setState({
       name: event.target.value,
+    });
+  }
+  setRoles(event) {
+    console.log("jsjsjsjss")
+    this.setState({
+      role: event.target.value,
     });
   }
 
@@ -71,7 +82,7 @@ class UserDetail extends React.Component {
       username: username,
       phoneNumber: phoneNumber,
       address: address,
-      role: role
+      role: role,
     };
     const urlUpdate = `http://localhost:8085/api/account/update?id=${this.state.user.id}`;
     const postDataUser = await axios.post(urlUpdate, body);
@@ -102,13 +113,14 @@ class UserDetail extends React.Component {
       phoneNumber: data_user.phoneNumber,
       username: data_user.username,
       address: data_user.address,
-      role: data_user.roles[0].name, 
+      role: data_user.roles[0].name,
       user: data_user,
     });
   }
 
   render() {
-    const { user } = this.state;
+    const { user , role} = this.state;
+    console.log(role)
     // const a = this.props.match;
     return (
       <div>
@@ -185,6 +197,32 @@ class UserDetail extends React.Component {
                             defaultValue={user.address}
                             onInput={this.setAddress}
                           />
+                        </div>
+                      </div>
+
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="form-group">
+                          <label for="website">Address</label>
+                          <input
+                            type="url"
+                            class="form-control"
+                            id="website"
+                            defaultValue={user.address}
+                            onInput={this.setAddress}
+                          />
+
+                          <InputLabel id="demo-simple-select-label">
+                            Role
+                          </InputLabel>
+                          <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value = {role}
+                            onChange = {this.setRoles}
+                          >
+                            <MenuItem value="ROLE_CUSTOMER">ROLE_CUSTOMER</MenuItem>
+                            <MenuItem value="ROLE_EMPLOYEE">ROLE_EMPLOYEE</MenuItem>
+                          </Select>
                         </div>
                       </div>
                     </div>

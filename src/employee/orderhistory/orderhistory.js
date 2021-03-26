@@ -81,15 +81,14 @@ class OrderHistory extends React.Component{
                           <TableCell align="right">{order.deliveryTime}</TableCell>
                           <TableCell align="right">{order.status}</TableCell>
                           <TableCell align="right">
-                          <Button>
+                          
                           <Link
                               style={{ color: "#ffff" }}
                               // to={`/orderhistory/${order.id}`}
                               to ={`/employee/manageorder/${order.id}`}
                             >
-                              View
+                              <Button>View</Button>
                             </Link>
-                          </Button>
                             
                           </TableCell>
                         </TableRow>

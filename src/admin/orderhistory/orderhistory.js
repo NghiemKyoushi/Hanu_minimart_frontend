@@ -81,18 +81,17 @@ class OrderHistory extends React.Component{
                           <TableCell align="right">{order.deliveryTime}</TableCell>
                           <TableCell align="right">{order.status}</TableCell>
                           <TableCell align="right">
-                          <Button>
+                          
                           <Link
                               style={{ color: "#fff" }}
                               // to={`/orderhistory/${order.id}`}
                               to ={`/admin/manageorder/${order.id}`}
                             >
-                              View
+                             <Button>View</Button> 
                             </Link>
-                          </Button>
-                            <Button variant="danger" style={{marginLeft: "5px"}}>
+                            {/* <Button variant="danger" style={{marginLeft: "5px"}}>
                              <strong>Delete</strong> 
-                            </Button>
+                            </Button> */}
                           </TableCell>
                         </TableRow>
                       ))}
