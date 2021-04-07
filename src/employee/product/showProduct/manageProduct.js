@@ -34,7 +34,11 @@ class ManageProduct extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     // this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
     this.fetchDataSearch = this.fetchDataSearch.bind(this);
+    this.viewProductNearExpire = this.viewProductNearExpire.bind(this);
+
+    this.viewAll = this.viewAll.bind(this);
   }
+
   handleChange(e){
     const {name, value} = e.target;
     this.setState({
@@ -42,6 +46,25 @@ class ManageProduct extends React.Component {
     })
   }
 
+  async viewAll(){
+    const urlProduct = "http://localhost:8085/api/product/getAll";
+    const getData = await axios.get(urlProduct);
+    const product = getData.data;
+    console.log("product_______________-", typeof product);
+    this.setState({
+      product: product,
+    });
+  }
+  async viewProductNearExpire(){
+    const url = "http://localhost:8085/api/product/nearExpire";
+
+    const fetchData = await axios.get(url);
+
+    this.setState({
+      product: fetchData.data
+    })
+    console.log("product near .....")
+  }
   async fetchDataSearch(event){
     event.preventDefault();
     console.log("aaaaaaaaaaaaaaaaaaa")
@@ -73,12 +96,10 @@ class ManageProduct extends React.Component {
       <div>
         <div className="Header">
           <div className="newProduct">
-            {/* <Link to="" className="linkNewP"> */}
               <Button variant="primary" size="sm">
                 <PlusCircleOutlined />
                 New Product
               </Button>
-            {/* </Link> */}
           </div>
           <form className="Search">
             <SearchOutlined />
@@ -87,12 +108,12 @@ class ManageProduct extends React.Component {
           </form>
 
           <div className="ViewAll">
-            <Button key ="button" variant="primary" size="sm">
+            <Button key ="button" variant="primary" size="sm" onClick={this.viewAll}>
               View All
             </Button>
           </div>
           <div className="ViewProductNear">
-            <Button variant="primary" size="sm">
+            <Button variant="primary" size="sm" onClick={this.viewProductNearExpire}>
               View Product Near Expiration
             </Button>
           </div>
