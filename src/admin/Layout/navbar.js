@@ -51,7 +51,7 @@ getCookie(name) {
                     this.deleteCookie("admin") ;
                     window.location.reload();
                   } } >
-                    <LogoutOutlined/>
+                 Log out
                   </div>
                 </div>
               ) : (
