@@ -64,7 +64,7 @@ class ViewDetailHistory extends React.Component {
     console.log("Aceeeeeeeeeeeeeeeeeeee")
     
     try{
-      const urlStatus = `http://localhost:8085/api/order/updateStatus/${this.props.match.params.id}?status=ACCEPTED`;
+      const urlStatus = `https://hanuminimart4c.azurewebsites.net/api/order/updateStatus/${this.props.match.params.id}?status=ACCEPTED`;
       const updateStatus = await axios.put(urlStatus);
     }catch(e){
       alert("the product is not enough");
@@ -81,7 +81,7 @@ class ViewDetailHistory extends React.Component {
     console.log("Cancccccccccccccccccccc")
 
     try{
-      const urlStatus = `http://localhost:8085/api/order/updateStatus/${this.props.match.params.id}?status=CANCEL`;
+      const urlStatus = `https://hanuminimart4c.azurewebsites.net/api/order/updateStatus/${this.props.match.params.id}?status=CANCEL`;
       const updateStatus = await axios.put(urlStatus);
     }catch(e){
       alert("not done");
@@ -133,7 +133,7 @@ class ViewDetailHistory extends React.Component {
   async componentDidMount() {
     console.log("orderId ,,,,,,", this.props);
     console.log(this.props.match.params.id);
-    const urlCart = `http://localhost:8085/api/order/${this.props.match.params.id}`;
+    const urlCart = `https://hanuminimart4c.azurewebsites.net/api/order/${this.props.match.params.id}`;
 
     const fetchData = await axios.get(urlCart);
 
@@ -142,11 +142,11 @@ class ViewDetailHistory extends React.Component {
     const quantity = fetchData.data.orderLine.map((item) => {
       console.log(
         item,
-        `http://localhost:8085/api/product/checkStorage/${item.productName}`
+        `https://hanuminimart4c.azurewebsites.net/api/product/checkStorage/${item.productName}`
       );
       return axios
         .get(
-          `http://localhost:8085/api/product/checkStorage/${item.productName}`
+          `https://hanuminimart4c.azurewebsites.net/api/product/checkStorage/${item.productName}`
         )
         .then((res) => res.data)
         .catch((e) => console.log(e));
